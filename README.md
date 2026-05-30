@@ -2,7 +2,7 @@
 
 A mesmerizing, animated personal portfolio website built with plain **HTML, CSS, and JavaScript** (no frameworks).
 
-🔗 **Live site:** _add your URL here after deploying_
+🔗 **Live site:** **<https://coderpandu.github.io/portfolio/>**
 
 ## Features
 
