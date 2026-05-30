@@ -8,3 +8,7 @@ desktop.ini
 
 # Node (only if you later add tooling)
 node_modules/
+
+# scratch / temp output files
+_*.txt
+_*.json
