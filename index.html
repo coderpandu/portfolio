@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sumit Phuyal — IT Professional & Web Designer. Clean, accessible, user-focused digital experiences and reliable IT support." />
+  <meta name="author" content="Sumit Phuyal" />
+  <meta name="theme-color" content="#0b0b16" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sumit Phuyal — IT Professional & Web Designer" />
+  <meta property="og:description" content="Portfolio of Sumit Phuyal — web design, programming, and customer-focused IT support, based in Kathmandu, Nepal." />
+  <meta property="og:type" content="website" />
+
+  <title>Sumit Phuyal · IT Professional & Web Designer</title>
+
+  <!-- Favicon (inline SVG monogram) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%237c5cff'/><text x='50' y='68' font-size='54' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>SP</text></svg>" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- ===== Preloader ===== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <div class="preloader__monogram">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <path id="loaderPath" d="M30 25 L30 75 M30 25 L30 50 L55 50 M55 25 L55 75 M70 25 L70 75" />
+        </svg>
+      </div>
+      <div class="preloader__bar"><span></span></div>
+      <p class="preloader__text">Loading experience<span class="dots"></span></p>
+    </div>
+  </div>
+
+  <!-- ===== Custom cursor ===== -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ===== Scroll progress bar ===== -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ===== Animated background ===== -->
+  <div class="bg-aurora" aria-hidden="true">
+    <span class="blob blob--1"></span>
+    <span class="blob blob--2"></span>
+    <span class="blob blob--3"></span>
+  </div>
+  <canvas id="particles" class="bg-particles" aria-hidden="true"></canvas>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ===== Navbar ===== -->
+  <header class="nav" id="nav">
+    <a href="#home" class="nav__logo" data-cursor="link">
+      <span class="nav__logo-mark">SP</span>
+      <span class="nav__logo-text">Sumit<span>Phuyal</span></span>
+    </a>
+
+    <nav class="nav__menu" id="navMenu" aria-label="Primary">
+      <a href="#home" class="nav__link is-active" data-cursor="link">Home</a>
+      <a href="#about" class="nav__link" data-cursor="link">About</a>
+      <a href="#skills" class="nav__link" data-cursor="link">Skills</a>
+      <a href="#experience" class="nav__link" data-cursor="link">Experience</a>
+      <a href="#projects" class="nav__link" data-cursor="link">Projects</a>
+      <a href="#education" class="nav__link" data-cursor="link">Education</a>
+      <a href="#contact" class="nav__link" data-cursor="link">Contact</a>
+    </nav>
+
+    <div class="nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" data-cursor="link">
+        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      <a href="assets/Sumit_Phuyal_Resume.pdf" download class="btn btn--ghost nav__cv" data-cursor="link">
+        <i class="fa-solid fa-arrow-down"></i> Resume
+      </a>
+      <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero section" id="home">
+      <div class="hero__content reveal">
+        <p class="hero__greeting"><span id="greeting">Hello</span>, I'm</p>
+        <h1 class="hero__name">
+          <span class="hero__name-line">Sumit</span>
+          <span class="hero__name-line hero__name-line--accent">Phuyal</span>
+        </h1>
+        <h2 class="hero__role">
+          <span class="hero__role-static">I'm a</span>
+          <span class="typed" id="typed"></span>
+          <span class="typed-cursor">|</span>
+        </h2>
+        <p class="hero__tagline">
+          Detail-oriented IT professional skilled in web design, programming, and CRM
+          platforms. I pair clean, user-focused interfaces with hands-on, customer-first
+          support to make technology work for people.
+        </p>
+
+        <div class="hero__cta">
+          <a href="#projects" class="btn btn--primary" data-cursor="link">
+            <span>View My Work</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn--outline" data-cursor="link">
+            <span>Get In Touch</span>
+          </a>
+        </div>
+
+        <div class="hero__socials">
+          <a href="https://github.com/coderpandu" target="_blank" rel="noopener" aria-label="GitHub" data-cursor="link"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/sumit-phuyal-7a83122a5" target="_blank" rel="noopener" aria-label="LinkedIn" data-cursor="link"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="mailto:sumeetphuyal585@gmail.com" aria-label="Email" data-cursor="link"><i class="fa-solid fa-envelope"></i></a>
+          <a href="tel:+9779861533546" aria-label="Phone" data-cursor="link"><i class="fa-solid fa-phone"></i></a>
+        </div>
+      </div>
+
+      <div class="hero__visual reveal">
+        <div class="hero__card tilt" id="heroCard">
+          <div class="hero__avatar">
+            <img src="assets/profile.jpg" alt="Sumit Phuyal" class="hero__avatar-img"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('no-img');" />
+            <span class="hero__avatar-mono">SP</span>
+            <span class="hero__avatar-ring"></span>
+          </div>
+          <div class="hero__chip hero__chip--1"><i class="fa-brands fa-html5"></i> HTML</div>
+          <div class="hero__chip hero__chip--2"><i class="fa-brands fa-css3-alt"></i> CSS</div>
+          <div class="hero__chip hero__chip--3"><i class="fa-brands fa-js"></i> JS</div>
+          <div class="hero__chip hero__chip--4"><i class="fa-brands fa-python"></i> Python</div>
+          <div class="hero__chip hero__chip--5"><i class="fa-solid fa-database"></i> SQL</div>
+          <div class="hero__status">
+            <span class="dot"></span> Open to web dev & IT support roles
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="hero__scroll" aria-label="Scroll down" data-cursor="link">
+        <span class="mouse"><span class="wheel"></span></span>
+        <span class="hero__scroll-text">Scroll</span>
+      </a>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="section about" id="about">
+      <div class="section__head reveal">
+        <span class="section__kicker">01 — About</span>
+        <h2 class="section__title">A little about <span>me</span></h2>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__text reveal">
+          <p>
+            I'm <strong>Sumit Phuyal</strong>, a detail-oriented IT professional based in
+            Kathmandu, Nepal. I'm skilled in web design (HTML, CSS, JavaScript), programming
+            (C, Java, SQL, Python & Django), and CRM platforms, and I'm currently pursuing a
+            Bachelor of Information Technology.
+          </p>
+          <p>
+            Alongside my technical work, I have hands-on customer-support experience:
+            maintaining accurate records, resolving issues efficiently, and streamlining
+            support workflows to improve user experience and operational efficiency. I'm
+            looking to apply my technical abilities and a customer-focused approach to
+            <strong>web development or IT support</strong> roles.
+          </p>
+
+          <ul class="about__facts">
+            <li><i class="fa-solid fa-location-dot"></i> Kathmandu, Nepal</li>
+            <li><i class="fa-solid fa-graduation-cap"></i> BIT @ IAU / MIT</li>
+            <li><i class="fa-solid fa-certificate"></i> 5 Professional Certifications</li>
+            <li><i class="fa-solid fa-circle-check"></i> Open to work & internships</li>
+          </ul>
+
+          <a href="assets/Sumit_Phuyal_Resume.pdf" download class="btn btn--primary" data-cursor="link">
+            <i class="fa-solid fa-download"></i> <span>Download Resume</span>
+          </a>
+        </div>
+
+        <div class="about__stats reveal">
+          <div class="stat">
+            <span class="stat__num" data-target="6">0</span><span class="stat__plus">+</span>
+            <p class="stat__label">Technical Skill Areas</p>
+          </div>
+          <div class="stat">
+            <span class="stat__num" data-target="5">0</span><span class="stat__plus">+</span>
+            <p class="stat__label">Professional Certifications</p>
+          </div>
+          <div class="stat">
+            <span class="stat__num" data-target="2">0</span>
+            <p class="stat__label">Professional Roles</p>
+          </div>
+          <div class="stat">
+            <span class="stat__num" data-target="100">0</span><span class="stat__plus">%</span>
+            <p class="stat__label">Customer-First Mindset</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section class="section skills" id="skills">
+      <div class="section__head reveal">
+        <span class="section__kicker">02 — Skills</span>
+        <h2 class="section__title">My technical <span>toolkit</span></h2>
+        <p class="section__sub">Technologies and strengths I bring to web and IT work.</p>
+      </div>
+
+      <div class="skills__grid">
+        <article class="skill-card reveal">
+          <div class="skill-card__icon"><i class="fa-solid fa-pen-ruler"></i></div>
+          <h3>Web Design</h3>
+          <div class="chips">
+            <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+            <span class="chip">UI/UX</span><span class="chip">Responsive</span>
+          </div>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-card__icon"><i class="fa-solid fa-code"></i></div>
+          <h3>Programming</h3>
+          <div class="chips">
+            <span class="chip">C</span><span class="chip">Java</span><span class="chip">SQL</span>
+            <span class="chip">Python</span><span class="chip">Django</span>
+          </div>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-card__icon"><i class="fa-solid fa-headset"></i></div>
+          <h3>Tools & CRM</h3>
+          <div class="chips">
+            <span class="chip">MS Office</span><span class="chip">CRM Software</span>
+            <span class="chip">Git & GitHub</span><span class="chip">Unity</span>
+          </div>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-card__icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Networking & Security</h3>
+          <div class="chips">
+            <span class="chip">Networking</span><span class="chip">Ethical Hacking</span>
+            <span class="chip">Cloud Basics</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Proficiency bars (mapped from resume skill levels) -->
+      <div class="skills__bars reveal">
+        <div class="bar">
+          <div class="bar__head"><span>Microsoft Office & CRM Software</span><span class="bar__pct">Experienced</span></div>
+          <div class="bar__track"><span class="bar__fill" data-width="90"></span></div>
+        </div>
+        <div class="bar">
+          <div class="bar__head"><span>Web Design (UI/UX, HTML, CSS, JS)</span><span class="bar__pct">Skillful</span></div>
+          <div class="bar__track"><span class="bar__fill" data-width="85"></span></div>
+        </div>
+        <div class="bar">
+          <div class="bar__head"><span>C, Java & SQL</span><span class="bar__pct">Skillful</span></div>
+          <div class="bar__track"><span class="bar__fill" data-width="80"></span></div>
+        </div>
+        <div class="bar">
+          <div class="bar__head"><span>Python & Django</span><span class="bar__pct">Skillful</span></div>
+          <div class="bar__track"><span class="bar__fill" data-width="80"></span></div>
+        </div>
+        <div class="bar">
+          <div class="bar__head"><span>Customer Relation & Communication</span><span class="bar__pct">Skillful</span></div>
+          <div class="bar__track"><span class="bar__fill" data-width="85"></span></div>
+        </div>
+        <div class="bar">
+          <div class="bar__head"><span>Networking, Ethical Hacking & Cybersecurity</span><span class="bar__pct">Beginner</span></div>
+          <div class="bar__track"><span class="bar__fill" data-width="45"></span></div>
+        </div>
+      </div>
+
+      <!-- Marquee ticker -->
+      <div class="marquee reveal" aria-hidden="true">
+        <div class="marquee__track">
+          <span>HTML</span><span>•</span><span>CSS</span><span>•</span><span>JavaScript</span><span>•</span>
+          <span>UI/UX</span><span>•</span><span>Python</span><span>•</span><span>Django</span><span>•</span>
+          <span>C</span><span>•</span><span>Java</span><span>•</span><span>SQL</span><span>•</span>
+          <span>CRM</span><span>•</span><span>Unity</span><span>•</span><span>Networking</span><span>•</span>
+          <span>Cybersecurity</span><span>•</span><span>Cloud</span><span>•</span>
+          <span>HTML</span><span>•</span><span>CSS</span><span>•</span><span>JavaScript</span><span>•</span>
+          <span>UI/UX</span><span>•</span><span>Python</span><span>•</span><span>Django</span><span>•</span>
+          <span>C</span><span>•</span><span>Java</span><span>•</span><span>SQL</span><span>•</span>
+          <span>CRM</span><span>•</span><span>Unity</span><span>•</span><span>Networking</span><span>•</span>
+          <span>Cybersecurity</span><span>•</span><span>Cloud</span><span>•</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Experience ===== -->
+    <section class="section experience" id="experience">
+      <div class="section__head reveal">
+        <span class="section__kicker">03 — Experience</span>
+        <h2 class="section__title">Where I've <span>worked</span></h2>
+        <p class="section__sub">Roles that shaped my problem-solving and people skills.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline__item reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <span class="timeline__date">Mar 2024 — Aug 2024</span>
+            <h3>Customer Service Representative</h3>
+            <p class="timeline__org"><i class="fa-solid fa-building"></i> Classic Tech Pvt. Ltd. · Kathmandu</p>
+            <ul class="timeline__list">
+              <li>Provided empathetic, professional support to inbound customers via phone and email, resolving inquiries and complaints to ensure a positive experience.</li>
+              <li>Maintained accurate, detailed CRM records for every interaction to enable reliable follow-up and team visibility.</li>
+              <li>Investigated issues, identified root causes, and delivered clear solutions or escalated complex problems to technical teams.</li>
+              <li>Recommended updates to FAQs and support processes to streamline workflows and reduce repeat contacts.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline__item reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <span class="timeline__date">Aug 2022 — Jan 2023</span>
+            <h3>Lecturer — Mathematics & Science</h3>
+            <p class="timeline__org"><i class="fa-solid fa-chalkboard-user"></i> Ekalavya Shikshya Sadan · Kathmandu</p>
+            <ul class="timeline__list">
+              <li>Delivered engaging Mathematics and Science lessons, ensuring clear understanding of concepts.</li>
+              <li>Prepared lesson plans, assignments, and practical activities aligned with the curriculum.</li>
+              <li>Assessed performance through tests, quizzes, and class participation, and gave individual guidance to sharpen problem-solving skills.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Projects ===== -->
+    <section class="section projects" id="projects">
+      <div class="section__head reveal">
+        <span class="section__kicker">04 — Projects</span>
+        <h2 class="section__title">Things I've <span>built</span></h2>
+        <p class="section__sub">Hands-on work from my studies and self-driven learning.</p>
+      </div>
+
+      <div class="projects__grid">
+        <article class="project reveal" data-cursor="view">
+          <div class="project__media">
+            <div class="project__mock">
+              <span class="project__mock-bar"></span>
+              <div class="project__mock-body"><i class="fa-solid fa-book-open-reader"></i></div>
+            </div>
+          </div>
+          <div class="project__body">
+            <div class="project__top">
+              <h3>Library Management System</h3>
+              <div class="project__links">
+                <a href="https://github.com/coderpandu" target="_blank" rel="noopener" aria-label="Source code" data-cursor="link"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <p>
+              A library management system built in C to handle records, lending, and
+              cataloguing. Managed the full codebase and version control through GitHub,
+              focusing on clean structure and reliable logic.
+            </p>
+            <div class="chips chips--sm">
+              <span class="chip">C</span><span class="chip">Data Structures</span><span class="chip">Git & GitHub</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project reveal" data-cursor="view">
+          <div class="project__media">
+            <div class="project__mock project__mock--alt">
+              <span class="project__mock-bar"></span>
+              <div class="project__mock-body"><i class="fa-solid fa-gamepad"></i></div>
+            </div>
+          </div>
+          <div class="project__body">
+            <div class="project__top">
+              <h3>Game Development in Unity</h3>
+              <div class="project__links">
+                <a href="https://github.com/coderpandu" target="_blank" rel="noopener" aria-label="Source code" data-cursor="link"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <p>
+              Hands-on experience building game mechanics in Unity, exploring gameplay
+              systems, interactions, and user-centric design while bringing interactive
+              ideas to life.
+            </p>
+            <div class="chips chips--sm">
+              <span class="chip">Unity</span><span class="chip">C#</span><span class="chip">Game Mechanics</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project reveal" data-cursor="view">
+          <div class="project__media">
+            <div class="project__mock project__mock--alt2">
+              <span class="project__mock-bar"></span>
+              <div class="project__mock-body"><i class="fa-solid fa-pen-nib"></i></div>
+            </div>
+          </div>
+          <div class="project__body">
+            <div class="project__top">
+              <h3>UI/UX Design Work</h3>
+              <div class="project__links">
+                <a href="https://github.com/coderpandu" target="_blank" rel="noopener" aria-label="Source code" data-cursor="link"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <p>
+              Designed user-centric interfaces by applying UI/UX design principles,
+              translating responsive web design and front-end skills into clean,
+              accessible layouts.
+            </p>
+            <div class="chips chips--sm">
+              <span class="chip">UI/UX</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="projects__note reveal">
+        More work is on the way as I keep building.
+        <a href="https://github.com/coderpandu" target="_blank" rel="noopener" data-cursor="link">See my GitHub <i class="fa-solid fa-arrow-right"></i></a>
+      </p>
+    </section>
+
+    <!-- ===== Education & Certifications ===== -->
+    <section class="section education" id="education">
+      <div class="section__head reveal">
+        <span class="section__kicker">05 — Education & Certifications</span>
+        <h2 class="section__title">My <span>journey</span></h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline__item reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <span class="timeline__date">Sept 2024 — Present</span>
+            <h3>Bachelor of Information Technology (BIT)</h3>
+            <p class="timeline__org"><i class="fa-solid fa-building-columns"></i> International American University (IAU) · Remote Campus: Model Institute of Technology (MIT), Kathmandu</p>
+            <p>
+              Building a strong IT foundation across software development, cybersecurity,
+              networking, and UI/UX, reinforced by hands-on projects and Cisco
+              certifications.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline__item reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <span class="timeline__date">Aug 2019 — Jun 2022</span>
+            <h3>High School Diploma</h3>
+            <p class="timeline__org"><i class="fa-solid fa-school"></i> Golden Gate International College · Kathmandu</p>
+            <p>
+              Science and mathematics focus with core coursework in Mathematics, Physics,
+              and Computer Fundamentals, building strong analytical and problem-solving
+              foundations for IT studies.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificates -->
+      <div class="certs reveal">
+        <h3 class="certs__title">Certifications</h3>
+        <div class="certs__grid">
+          <article class="cert-card">
+            <div class="cert-card__ico"><i class="fa-brands fa-python"></i></div>
+            <div>
+              <h4>Python &amp; Django</h4>
+              <p class="cert-card__org">Broadway Infosys</p>
+              <p class="cert-card__meta">OOP · Data structures · Django MVC · Web apps</p>
+            </div>
+            <span class="cert-card__year">2023</span>
+          </article>
+
+          <article class="cert-card">
+            <div class="cert-card__ico"><i class="fa-solid fa-pen-ruler"></i></div>
+            <div>
+              <h4>Web Design</h4>
+              <p class="cert-card__org">Broadway Infosys</p>
+              <p class="cert-card__meta">UI/UX · HTML · CSS · JavaScript · Responsive</p>
+            </div>
+            <span class="cert-card__year">2023</span>
+          </article>
+
+          <article class="cert-card">
+            <div class="cert-card__ico"><i class="fa-solid fa-network-wired"></i></div>
+            <div>
+              <h4>Networking Basics</h4>
+              <p class="cert-card__org">Cisco Networking Academy</p>
+              <p class="cert-card__meta">IP addressing · Protocols · LAN/WAN</p>
+            </div>
+            <span class="cert-card__year">2025</span>
+          </article>
+
+          <article class="cert-card">
+            <div class="cert-card__ico"><i class="fa-solid fa-shield-halved"></i></div>
+            <div>
+              <h4>Introduction to Cybersecurity</h4>
+              <p class="cert-card__org">Cisco Networking Academy</p>
+              <p class="cert-card__meta">Threats · Best practices · Risk mitigation</p>
+            </div>
+            <span class="cert-card__year">2025</span>
+          </article>
+
+          <article class="cert-card">
+            <div class="cert-card__ico"><i class="fa-solid fa-cloud"></i></div>
+            <div>
+              <h4>Introduction to Cloud Computing</h4>
+              <p class="cert-card__org">Simplilearn</p>
+              <p class="cert-card__meta">Virtualization · IaaS / PaaS / SaaS · Deployment</p>
+            </div>
+            <span class="cert-card__year">2025</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="section contact" id="contact">
+      <div class="section__head reveal">
+        <span class="section__kicker">06 — Contact</span>
+        <h2 class="section__title">Let's work <span>together</span></h2>
+        <p class="section__sub">Have a role, a project, or a question? My inbox is always open.</p>
+      </div>
+
+      <div class="contact__grid">
+        <div class="contact__info reveal">
+          <a href="mailto:sumeetphuyal585@gmail.com" class="contact__item" data-cursor="link">
+            <span class="contact__ico"><i class="fa-solid fa-envelope"></i></span>
+            <span><small>Email</small>sumeetphuyal585@gmail.com</span>
+          </a>
+          <a href="tel:+9779861533546" class="contact__item" data-cursor="link">
+            <span class="contact__ico"><i class="fa-solid fa-phone"></i></span>
+            <span><small>Phone</small>+977 986-1533546</span>
+          </a>
+          <a href="https://www.linkedin.com/in/sumit-phuyal-7a83122a5" target="_blank" rel="noopener" class="contact__item" data-cursor="link">
+            <span class="contact__ico"><i class="fa-brands fa-linkedin-in"></i></span>
+            <span><small>LinkedIn</small>sumit-phuyal-7a83122a5</span>
+          </a>
+          <a href="https://github.com/coderpandu" target="_blank" rel="noopener" class="contact__item" data-cursor="link">
+            <span class="contact__ico"><i class="fa-brands fa-github"></i></span>
+            <span><small>GitHub</small>coderpandu</span>
+          </a>
+          <div class="contact__item contact__item--static">
+            <span class="contact__ico"><i class="fa-solid fa-location-dot"></i></span>
+            <span><small>Location</small>Kathmandu, Nepal</span>
+          </div>
+        </div>
+
+        <form class="contact__form reveal" id="contactForm" novalidate>
+          <div class="field">
+            <input type="text" id="name" name="name" required placeholder=" " data-cursor="link" />
+            <label for="name">Your name</label>
+          </div>
+          <div class="field">
+            <input type="email" id="email" name="email" required placeholder=" " data-cursor="link" />
+            <label for="email">Your email</label>
+          </div>
+          <div class="field">
+            <input type="text" id="subject" name="subject" placeholder=" " data-cursor="link" />
+            <label for="subject">Subject</label>
+          </div>
+          <div class="field">
+            <textarea id="message" name="message" rows="5" required placeholder=" " data-cursor="link"></textarea>
+            <label for="message">Your message</label>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block" data-cursor="link">
+            <span>Send Message</span> <i class="fa-solid fa-paper-plane"></i>
+          </button>
+          <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <a href="#home" class="footer__logo" data-cursor="link">Sumit<span>Phuyal</span></a>
+      <p class="footer__copy">© <span id="year"></span> Sumit Phuyal. Designed & built with <i class="fa-solid fa-heart"></i> and code.</p>
+      <div class="footer__socials">
+        <a href="https://github.com/coderpandu" target="_blank" rel="noopener" aria-label="GitHub" data-cursor="link"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/sumit-phuyal-7a83122a5" target="_blank" rel="noopener" aria-label="LinkedIn" data-cursor="link"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:sumeetphuyal585@gmail.com" aria-label="Email" data-cursor="link"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="to-top" id="toTop" aria-label="Back to top" data-cursor="link">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

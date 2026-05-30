@@ -1,0 +1,4 @@
+# Netlify config — this site is static (plain HTML/CSS/JS), so there is no build step.
+[build]
+  publish = "."
+  command = ""
